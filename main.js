@@ -7,6 +7,8 @@ import TileLayer from 'ol/layer/Tile';
 import View from 'ol/View';
 import html2canvas from 'html2canvas';
 import {jsPDF} from 'jspdf';
+import ZoomSlider from 'ol/control/ZoomSlider';
+import {defaults as defaultControls} from 'ol/control';
 
 
 
@@ -61,6 +63,7 @@ const map = new Map({
     center: [0, 0],
     zoom: 2,
   }),
+  controls: defaultControls().extend([new ZoomSlider()]),
 });}
 
 mapinit();
