@@ -9,70 +9,103 @@ import html2canvas from 'html2canvas';
 import {jsPDF} from 'jspdf';
 import ZoomSlider from 'ol/control/ZoomSlider';
 import {defaults as defaultControls} from 'ol/control';
+import VectorSource from 'ol/source/Vector';
+import VectorLayer from 'ol/layer/Vector';
+import Draw, {
+  createBox,
+} from 'ol/interaction/Draw';
+//import {Vector as VectorSource} from 'ol/source';
+//import {Tile as TileLayer, Vector as VectorLayer} from 'ol/layer';
 
 
 
-var socleSelect = document.getElementById("socle-select");
-var carre = document.getElementById("carre");
-var squareH = "50%";
-var squareW="50%";
 
-function changeFunction() {
-  var socle = socleSelect.value;
+// var socleSelect = document.getElementById("socle-select");
+// var carre = document.getElementById("carre");
+// var squareH = "50%";
+// var squareW="50%";
+
+// function changeFunction() {
+//   var socle = socleSelect.value;
   
-
-
-
-
-
-
-if(socle == "socle 1" ){
-  squareH="80%";
-  squareW="50%";
+// if(socle == "socle 1" ){
+//   squareH="80%";
+//   squareW="50%";
   
-}
-else if(socle == "socle 2" ){
-  squareH="50%";
-  squareW="80%";
-}
-else if(socle == "socle 3" ){
+// }
+// else if(socle == "socle 2" ){
+//   squareH="50%";
+//   squareW="80%";
+// }
+// else if(socle == "socle 3" ){
   
-  squareH="60%";
-  squareW="70%";
+//   squareH="60%";
+//   squareW="70%";
   
-}
-else {
-squareH="80%";
-squareW="80%";
-}
-carre.style.height = squareH;
-carre.style.width = squareW;
-}
+// }
+// else {
+// squareH="80%";
+// squareW="80%";
+// }
+// carre.style.height = squareH;
+// carre.style.width = squareW;
+// }
 
+const raster = new TileLayer({
+    source: new OSM(),
+  });
+  
+  const source = new VectorSource({wrapX: false});
+  
+  const vector = new VectorLayer({
+    source: source,
+  });
 
-function mapinit() {
+  
  
 const map = new Map({
-  layers: [
-    new TileLayer({
-      source: new OSM(),
-    }),
-  ],
+  layers: [raster, vector],
   target: 'map',
   view: new View({
-    center: [0, 0],
-    zoom: 2,
+    center: [-11000000, 4600000],
+    zoom: 4,
   }),
   controls: defaultControls().extend([new ZoomSlider()]),
-});}
-
-mapinit();
+});
 
 
-
-socleSelect.onchange = function(){
-  changeFunction();
+let draw; 
+function addInteraction() {
+    
+    let geometryFunction;
+    let value;
+    
+    
+    value = 'Circle';
+      geometryFunction = createBox();
+    draw = new Draw({
+      source: source,
+      type: 'Circle',
+      geometryFunction: geometryFunction,
+    });
+    
+    map.addInteraction(draw);
+  
 }
+
+source.on('change', function(event) {
+    if(source.getFeatures().length >1){
+    source.clear();}
+    
+});
+
+addInteraction();
+
+
+
+// socleSelect.onchange = function(){
+//   changeFunction();
+// }
 
 
 var element = document.getElementById("map");

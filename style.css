@@ -22,11 +22,11 @@
 
 right: 10%;
 bottom: 300px;}
-.socle {
+/* .socle {
 position: absolute;
 right: 10%;
-bottom: 340px;}
- .carre {
+bottom: 340px;} */
+ /* .carre {
   
   border: solid 3px rgb(0, 0, 0);
   border-style: dotted;
@@ -46,4 +46,4 @@ bottom: 340px;}
   -ms-user-select: none; 
   user-select: none;  
   
-}
+} */
