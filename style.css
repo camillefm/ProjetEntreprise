@@ -1,22 +1,139 @@
+/* On travaille sur la balise body, donc sur TOUTE la page */
+body
+{
+    background-color: #E4F4FE; /* Le fond de la page sera noir */
+    color: rgb(44, 44, 117); /* Le texte de la page sera blanc */
+}
 
-  
-  body {
-    color: rgb(44, 44, 117);
-    background-color: #3da8da62 }
-     
-    
-  .map {
-      position: relative;
-    height: 400px;
-    width: 800px;
+/*centrer la page sur l'écran */
+#bloc_page
+{
+    width: 90%;
+    margin: auto;
+}
 
-    
+/* titres en majuscule */
+header h1, nav a, article h1, aside h1
+{
+    font-weight:  normal;
+    text-transform: uppercase;
+}
 
-    margin-right: auto;
+header
+{
+    background: url("images/separateur.png") repeat-x bottom;
+}
+
+header h1
+{
+    width:  700px;
+    margin:  auto;
+    font-weight: normal;
+    text-align:  center;  
+}
+
+nav
+{
+    flex: 1;
+    position: relative;
+    background-color: #EEEEEE;
+    padding: 10px;
+    border: 1px solid #BCBCBC;
+    font-size: 0.9em;
+    margin-right: 10px;
+}
+
+/* corps */
+
+section
+{
+    display:  flex;
+    margin-top:  20px;
+    margin-bottom:  20px;
+    width: 100%;
+    justify-content:  center;
+}
+
+article h1
+{
+    width: 50%;
+    font-weight: normal;
+    text-align:  center; 
+}
+
+article{
+    width: 100%;
+    display:  flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.toto
+{
+    text-align:  center;
+}
+
+/* Conteneur carte */
+.map {
+    height: 450px;
+    width: 100%;
     margin-left: auto;
-    
-  }
+    margin-right: auto;
+    border-radius: 4px;
+    background-color: #AF00FF;
+    background-image: linear-gradient(332deg, #009FFF 0%, #AF00FF 100%);
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000;
+}
 
+aside
+{
+    flex: 1;
+    position: relative;
+    background-color: #706b64;
+    box-shadow: 0px 2px 5px #1c1a19;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    font-size: 0.9em;
+    margin-left: 10px;
+}
+
+/*Footer*/
+
+footer
+{
+    display: flex;
+    width: 100%;
+    background-color: black;
+    border: 1px solid #BCBCBC;
+}
+
+.contact
+{
+    margin-right: 20px;
+    background-color: white;
+    color: black;
+    font-size: 0.9em;
+    border-radius: 5px;
+    width:  100px;
+    height:  100px;
+}
+
+.legp
+{
+    margin-left: 20px;
+    padding-left: 20px;
+}
+
+.legoImage
+{
+    margin-left: 20px;
+    width: 6%;
+    text-align:  center;
+    height:  auto;
+    margin:  auto;
+}
 
 .importer { position: absolute;
 

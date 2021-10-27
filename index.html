@@ -19,33 +19,59 @@
     </style>
 
     <body>
-        
-        <div style = "text-align: right">
-        <h1> Cartego</h1>
-        </div> 
-        <div style = "text-align: center">
-        <h3><img id ="img" src="data:image/png;base64,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" style ="width: 100px;
-            height: 100px"/> </h3>
+
+        <div id="bloc_page">
+
+            <header>
+                <h1>Cartego One</h1>
+            </header>
+            
+            <section>
+
+                <nav class="left">
+                    <ul class = "nav">
+                        <li><a href="#">Présentation du projet</a></li>
+                        <li><a href="#">Ressources</a></li>
+                        <li><a href="#">?</a></li>
+                    </ul>
+                </nav>
+
+                <article>
+                    <h1>Nom de la carte</h1>
+                    <!-- Emplacement de la carte -->
+                    <div class="map" id="map"></div>
+                </article>
+
+                <aside>
+                    <h1>Préférences de la carte</h1>
+                    <ul>
+                        <li>2D/3D 
+                        <li>longueur</li>
+                        <li>largeur</li>
+                        <li>?</li>
+                    </ul>
+                    <button class="importer" type = "button" id ="importer" > exporter </button>
+                </aside>
+
+            </section>
+            
+            <footer>
+
+                <div id="lego">
+                    <p><img class="legoImage" src="images/logoLego.jpg" alt="lego" /></p>
+                </div>
+
+                <div class="contact">
+                    <p>Copyright<br />
+                    <a href="#">contacts</a></p>
+                </div>
+
+                <script src="main.js" type ="module"></script>
+
+            </footer>
+
         </div>
-    
-        
-        
-        
-        
-       
-       
-      
-   <button class="importer" type = "button" id ="importer" > exporter </button>
-   <section class="map" id="map">
 
-    
-   </section>
-   
-    
-   
-   <script src="main.js" type ="module"></script>
+    </body>
 
-   
-       
-  </body>    
 </html>
